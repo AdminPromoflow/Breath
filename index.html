@@ -12,6 +12,10 @@
         padding: 0;
         height: 100%;
       }
+      .dadContainer{
+        position: relative;
+        background-color: red;
+      }
       .container{
         position: relative;
         width: 500px;
@@ -102,22 +106,24 @@
       }
 
     </style>
+  <div class="dadContainer">
+
 
     <div class="container">
-      <img src="Img/Body.png" alt="">
+        <img src="Img/Body.png" alt="">
       <div class="center" id="center">
-
       </div>
+    </div>
 
-    </div>
     <div class="containerButtons">
-    <div class="bg" id="start">
+      <div class="bg" id="start">
         <img src="Img/Button.png" alt="">
+      </div>
+      <div class="number" id="number">
+        <h1>10</h1>
+      </div>
     </div>
-    <div class="number" id="number">
-      <h1>10</h1>
-    </div>
-</div>
+  </div>
     <script  type="text/javascript">
       var start = document.getElementById('start');
       var numberClass = document.getElementById('number');
