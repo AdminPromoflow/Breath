@@ -168,7 +168,7 @@
         <img src="Img/MenuIcon.png" alt="">
       </div>
 
-      <div class="menu">
+      <div class="menu" id="menu">
         <div class="itemMenu">
         </div>
         <div class="itemMenu">
@@ -203,6 +203,8 @@
       var numberClass = document.getElementById('number');
       var center = document.getElementById('center');
       var number = 10;
+      var menu = document.getElementById('menu')
+
       start.addEventListener("click",function(){
         center.classList.add("animationBreath");
           setInterval(timer, 8000);
