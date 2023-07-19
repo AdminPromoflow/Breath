@@ -148,7 +148,7 @@
         <h1>10</h1>
       </div>
     </div>
-    <div class="menuIcon">
+    <div id="openMenu" class="menuIcon">
       <img src="Img/MenuIcon.png" alt="">
     </div>
   </div>
@@ -175,6 +175,10 @@
         }
 
       }
+      var openMenu = document.getElementById('openMenu');
+      openMenu.addEventListener("click",function(){
+        alert(hola);
+      })
     </script>
 
 </body>
