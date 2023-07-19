@@ -256,20 +256,29 @@
         closeMenu.style.display = "block";
       })
       */
-      /* open menu
+      /*
+       open menu
        close menu
        menu
 
        situacion
        open menu  visible
        close menu no visible
-       menu no visible*/
+       menu no visible
+
+       situasion 2
+       open menu no visible
+       close menu visible
+       menu visible
+       */
 
        openMenu.style.display = "block";
        closeMenu.style.display = "none";
        menu.style.display = "none";
 
-
+       openMenu.addEventListener("click", function(){
+         alert("Hola");
+       })
 
       /* menu.style.display = "none";
       openMenu.addEventListener("click",function(){
