@@ -188,7 +188,32 @@
     </section>
 
     <script type="text/javascript">
+    var start = document.getElementById('start');
+      var numberClass = document.getElementById('number');
+      var center = document.getElementById('center');
+      var number = 10;
+      start.addEventListener("click",function(){
+        center.classList.add("animationBreath");
+          setInterval(timer, 8000);
+        })
+      function timer(){
+        if (number > 0) {
+          number = number -1;
+          numberClass.innerHTML = number;
+          numberClass.style.fontSize = "5em";
+          numberClass.style.textAlign = "center";
+          console.log("hola");
+        }
 
+        else {
+          center.classList.remove("animationBreath");
+        }
+
+      }
+      var openMenu = document.getElementById('openMenu');
+      openMenu.addEventListener("click",function(){
+        alert("hola");
+      })
     </script>
   </body>
 </html>
