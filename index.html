@@ -266,25 +266,25 @@
        close menu no visible
        menu no visible
 
-       situasion 2
+       situasion 2 click open menu
        open menu no visible
        close menu visible
        menu visible
        */
 
-
+       openMenu.style.display = "block";
        closeMenu.style.display = "none";
        menu.style.display = "none";
 
        openMenu.addEventListener("click", function(){
-         openMenu.style.display = "block";
+         openMenu.style.display = "none";
+         closeMenu.style.display = "block";
+         menu.style.display = "block";
        })
        closeMenu.addEventListener("click",function(){
 
        })
-       menu.addEventListener("click",function(){
 
-       })
 
       /* menu.style.display = "none";
       openMenu.addEventListener("click",function(){
