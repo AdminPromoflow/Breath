@@ -190,7 +190,7 @@
       <div class="openMenu" id="openMenu">
         <img src="Img/MenuIcon.png" alt="">
       </div>
-      <div class="closeMenu">
+      <div class="closeMenu" id="closeMenu">
         <img src="Img/MenuIconsClouse.png" alt="">
       </div>
 
@@ -229,7 +229,9 @@
       var numberClass = document.getElementById('number');
       var center = document.getElementById('center');
       var number = 10;
-      var menu = document.getElementById('menu')
+      var menu = document.getElementById('menu');
+      var openMenu = document.getElementById('openMenu');
+      var closeMenu = document.getElementById('closeMenu');
 
       start.addEventListener("click",function(){
         center.classList.add("animationBreath");
@@ -249,11 +251,31 @@
         }
 
       }
-      menu.style.display = "none";
-      var openMenu = document.getElementById('openMenu');
+      /*closeMenu.style.display = "none";
+      openMenu.addEventListener("click",function(){
+        closeMenu.style.display = "block";
+      })
+      */
+      /* open menu
+       close menu
+       menu
+
+       situacion
+       open menu  visible
+       close menu no visible
+       menu no visible*/
+
+       openMenu.style.display = "block";
+       closeMenu.style.display = "none";
+       menu.style.display = "none";
+
+
+
+      /* menu.style.display = "none";
       openMenu.addEventListener("click",function(){
         menu.style.display = "block";
-      })
+
+      })*/
     </script>
   </body>
 </html>
