@@ -268,6 +268,7 @@
       var startInput = document.getElementById('startInput');
       var jumpInput = document.getElementById('jumpInput');
       var breathInput = document.getElementById('breathInput');
+      var animationBreath = document.getElementsByClassName('animationBreath')[0];
 
       start.addEventListener("click",function(){
         center.classList.add("animationBreath");
@@ -303,7 +304,9 @@
        })
 
        enter.addEventListener("click",function(){
-         alert(startInput.value + jumpInput.value + breathInput.value);
+        /* alert(startInput.value + jumpInput.value + breathInput.value);*/
+         animationBreath.style.animationDuration = "2s";
+
        })
 
     </script>
