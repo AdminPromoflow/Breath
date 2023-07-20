@@ -223,15 +223,15 @@
         <div class="itemMenu">
           <div class="containerItemsMenu">
             <label for="">Start</label>
-            <input type="text" name="" value="">
+            <input type="text" name="" value="" id="startInput">
           </div>
           <div class="containerItemsMenu">
             <label for="">Jump</label>
-            <input type="text" name="" value="">
+            <input type="text" name="" value="" id="jumpInput">
           </div>
           <div class="containerItemsMenu">
             <label for="">Breath</label>
-            <input type="text" name="" value="">
+            <input type="text" name="" value="" id="breathInput">
           </div>
           <button type="button" name="button" id="enter">Enter</button>
 
@@ -265,6 +265,9 @@
       var openMenu = document.getElementById('openMenu');
       var closeMenu = document.getElementById('closeMenu');
       var enter = document.getElementById('enter');
+      var startInput = document.getElementById('startInput');
+      var jumpInput = document.getElementById('jumpInput');
+      var breathInput = document.getElementById('breathInput');
 
       start.addEventListener("click",function(){
         center.classList.add("animationBreath");
@@ -300,8 +303,9 @@
        })
 
        enter.addEventListener("click",function(){
-         alert("hola");
+         alert(startInput.value + jumpInput.value + breathInput.value);
        })
+
     </script>
   </body>
 </html>
