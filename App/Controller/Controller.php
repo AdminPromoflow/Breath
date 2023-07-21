@@ -11,9 +11,9 @@ if ($_POST["module"] == "setValue") {
   $breath->setStart($_POST["start"]);
 
   $breath->setJump( $_POST["jump"]);
-  echo "string";exit;
-  $breath->updateBreath();
 
+  $breath->updateBreath();
+ echo "string";exit;
   //echo json_encode($breath->getMaterials());
 }
 
