@@ -1,7 +1,7 @@
 <?php
 require_once('../Config/database.php');
 require_once('../App/Models/Breath.php');
-echo "string";exit;
+//echo "string";exit;
 if ($_POST["module"] == "setValue") {
 
   $db = new Database();
