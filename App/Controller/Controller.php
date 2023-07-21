@@ -1,7 +1,7 @@
 <?php
 require_once('../Config/database.php');
-require_once('../App/Models/Breath.php');
-//echo "string";exit;
+require_once('../Models/Breath.php');
+
 if ($_POST["module"] == "setValue") {
 
   $db = new Database();
@@ -9,7 +9,9 @@ if ($_POST["module"] == "setValue") {
   $breath = new Breath($db);
 
   $breath->setStart($_POST["start"]);
+
   $breath->setJump( $_POST["jump"]);
+  echo "string";exit;
   $breath->updateBreath();
 
   //echo json_encode($breath->getMaterials());

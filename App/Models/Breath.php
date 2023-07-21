@@ -16,7 +16,7 @@
        function __construct($conn) {
             $this->conn = $conn;
         }
-        function setStart($start){
+       function setStart($start){
           $this->start = $start;
         }
         function setJump($jump){
