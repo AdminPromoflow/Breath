@@ -1,8 +1,8 @@
 <?php
     class Database{
       private  $servername = 'localhost';
-      private $dbname = "Breath";
-      private $username = "Ale";
+      private $dbname = "u473339840_Breath";
+      private $username = "u473339840_Ale";
       private $password = "NVF2023!170599Ln";
       private  $conn;
       public function __construct(){
