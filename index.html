@@ -5,6 +5,7 @@
     <title>Breath</title>
   </head>
   <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <style media="screen">
       body{
         position: relative;
@@ -229,10 +230,10 @@
             <label for="">Jump</label>
             <input type="text" name="" value="" id="jumpInput">
           </div>
-          <div class="containerItemsMenu">
+        <!--  <div class="containerItemsMenu">
             <label for="">Breath</label>
             <input type="text" name="" value="" id="breathInput">
-          </div>
+          </div> -->
           <button type="button" name="button" id="enter">Enter</button>
 
         </div>
@@ -305,7 +306,19 @@
 
        enter.addEventListener("click",function(){
         /* alert(startInput.value + jumpInput.value + breathInput.value);*/
-         animationBreath.style.animationDuration = "8s";
+         //animationBreath.style.animationDuration = "8s";
+         $.ajax( "../App/Controller/Controller.php", {
+           type: 'post',
+           async: false,
+           data: {
+             module: "setValue",
+
+           },
+           success: function(data){
+             alert(data);
+          }
+         }
+         )
 
        })
 
