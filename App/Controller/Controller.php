@@ -1,5 +1,5 @@
 <?php
-if (condition) {
+if ($_POST["module"] == "setValue") {
   echo $_POST["module"];
 }
 
