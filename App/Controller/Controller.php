@@ -2,9 +2,9 @@
 require_once('../Config/database.php');
 require_once('../App/Models/Breath.php');
 if ($_POST["module"] == "setValue") {
-
+echo "string";exit;
   $db = new Database();
-  echo "string";exit;
+
   $breath = new Breath($db);
 
   $breath->setStart($_POST["start"]);
