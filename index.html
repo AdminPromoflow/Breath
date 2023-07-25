@@ -305,6 +305,9 @@
        })
 
        enter.addEventListener("click",function(){
+         if (startInput.value.trim() === "" || !/^\d+$/.test(startInput.value)) {
+           alert("No es un valor numerico");
+         }
         /* alert(startInput.value + jumpInput.value + breathInput.value);*/
          //animationBreath.style.animationDuration = "8s";
          $.ajax( "App/Controller/Controller.php", {
