@@ -23,7 +23,7 @@
         function setJump($jump){
           $this->jump = $jump;
         }
-        function idUser($idUser){
+        function setIdUser($idUser){
           $this->idUser = $idUser;
         }
         function updateBreath(){
