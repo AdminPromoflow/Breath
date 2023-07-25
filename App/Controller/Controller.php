@@ -9,8 +9,8 @@ if ($_POST["module"] == "setValue") {
   $breath = new Breath($db);
 
   $breath->setStart($_POST["start"]);
-  
-  $breath->setidUser(0);
+
+  $breath->setIdUser(0);
   echo "string";exit;
   $breath->setJump( $_POST["jump"]);
 
