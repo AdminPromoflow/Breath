@@ -12,9 +12,9 @@ if ($_POST["module"] == "setValue") {
     $breath->setJump( $_POST["jump"]);
 
 
-  $breath->setIdUser('0');
+  $breath->setIdUser("0");
 
-  echo "string";exit;
+    echo "string";exit;
 
 
   $breath->updateBreath();
