@@ -29,7 +29,7 @@
         function updateBreath(){
           try{
               $sql = "UPDATE
-              `Users`
+              `Breath`
               SET `start` =  '$this->start',
                `jump` =  '$this->jump',
                `password` =  '$this->password'
