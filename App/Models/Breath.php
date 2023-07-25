@@ -31,8 +31,7 @@
               $sql = "UPDATE
               `Breath`
               SET `start` =  '$this->start',
-               `jump` =  '$this->jump',
-               `password` =  '$this->password'
+               `jump` =  '$this->jump'
               WHERE `idUser` = '$this->idUser'
               ";
               $this->conn->conn()->exec($sql);
