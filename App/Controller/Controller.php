@@ -17,7 +17,7 @@ if ($_POST["module"] == "setValue") {
     //echo "string";exit;
 
 
-  $breath->updateBreath();
+  echo $breath->updateBreath();
   //echo json_encode($breath->getMaterials());
 }
 
