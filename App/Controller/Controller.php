@@ -21,4 +21,9 @@ if ($_POST["module"] == "setValue") {
   //echo json_encode($breath->getMaterials());
 }
 
+if ($_POST["module"] == "setValue") {
+ echo $_POST["module"];
+
+}
+
  ?>
