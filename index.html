@@ -305,7 +305,7 @@
        })
 
        enter.addEventListener("click",function(){
-         if (isNaN(startInput.value)) {
+         if (isNaN(startInput.value) && isNaN(jumpInput.value) ) {
            alert("No es un Valor numerico");
          }
          else {
