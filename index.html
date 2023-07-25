@@ -308,20 +308,24 @@
          if (isNaN(startInput.value)) {
            alert("No es un Valor numerico");
          }
+         else {
+           $.ajax( "App/Controller/Controller.php", {
+             type: 'post',
+             async: false,
+             data: {
+               module: "setValue",
+               start: startInput.value,
+               jump: jumpInput.value,
+             },
+             success: function(data){
+               alert(data);
+            }
+           }
+
+         }
         /* alert(startInput.value + jumpInput.value + breathInput.value);*/
          //animationBreath.style.animationDuration = "8s";
-         $.ajax( "App/Controller/Controller.php", {
-           type: 'post',
-           async: false,
-           data: {
-             module: "setValue",
-             start: startInput.value,
-             jump: jumpInput.value,
-           },
-           success: function(data){
-             alert(data);
-          }
-         }
+
          )
        })
 
