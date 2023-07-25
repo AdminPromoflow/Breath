@@ -14,11 +14,11 @@ if ($_POST["module"] == "setValue") {
 
   $breath->setIdUser("0");
 
-    echo "string";exit;
+    //echo "string";exit;
 
 
   $breath->updateBreath();
-  echo json_encode($breath->getMaterials());
+  //echo json_encode($breath->getMaterials());
 }
 
  ?>
