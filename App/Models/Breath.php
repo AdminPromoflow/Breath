@@ -8,6 +8,7 @@
       private $positionCompany;
       private $phone;
       private $date;*/
+      private $idUser;
       private $start;
       private $jump;
       private $updateBreath;
@@ -22,9 +23,47 @@
         function setJump($jump){
           $this->jump = $jump;
         }
-        function updateBreath(){
-          echo "hola";
+        function idUser($idUser){
+          $this->idUser = $idUser;
         }
+        function updateBreath(){
+          try{
+              $sql = "UPDATE
+              `Users`
+              SET `start` =  '$this->start',
+               `jump` =  '$this->jump',
+               `password` =  '$this->password'
+              WHERE `idUser` = '$this->idUser'
+              ";
+              $this->conn->conn()->exec($sql);
+              $this->conn->close();
+              return "The information has been modified";
+              }
+            catch(PDOException $e){
+                echo "The information is not refreshed." . "<br>" .$query . "<br>"."Error: " . $e->getMessage();
+              }
+        }
+
+
+        /*function updateUser(){
+         try{
+             $sql = "UPDATE
+             `Users`
+             SET `name` =  '$this->name',
+              `email` =  '$this->email',
+              `password` =  '$this->password',
+              `userType` =  '$this->userType'
+
+             WHERE `idUser` = '$this->idUser'
+             ";
+             $this->conn->conn()->exec($sql);
+             $this->conn->close();
+             return "The information has been modified";
+             }
+           catch(PDOException $e){
+               echo "The information is not refreshed." . "<br>" .$query . "<br>"."Error: " . $e->getMessage();
+             }
+         }*/
 
     /*     function setEmail($email){
           $this->email = $email;

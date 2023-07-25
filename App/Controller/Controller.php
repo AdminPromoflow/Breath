@@ -9,12 +9,12 @@ if ($_POST["module"] == "setValue") {
   $breath = new Breath($db);
 
   $breath->setStart($_POST["start"]);
+  $breath->setidUser(0);
 
   $breath->setJump( $_POST["jump"]);
 
   $breath->updateBreath();
- echo "string";exit;
-  //echo json_encode($breath->getMaterials());
+  echo json_encode($breath->getMaterials());
 }
 
  ?>
