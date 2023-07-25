@@ -305,7 +305,7 @@
        })
 
        enter.addEventListener("click",function(){
-         if (!isNaN(startInput.value)) {
+         if (isNaN(startInput.value)) {
            alert("Valor numerico");
          }
         /* alert(startInput.value + jumpInput.value + breathInput.value);*/
