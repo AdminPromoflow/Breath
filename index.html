@@ -324,7 +324,7 @@
 
    center.classList.remove("animationBreath");
   }
-  async function holdBreath (){
+  async function holdBreath(){
     alert("entramos");
   while (holdCurrentBreath < holdBreath) {
     console.log("holdBreath: " + holdBreath + " holdCurrentBreath: " + holdCurrentBreath);
@@ -333,7 +333,7 @@
     numberClass.style.fontSize = "3em";
     numberClass.style.textAlign = "center";
     holdCurrentBreath = holdCurrentBreath + 1;
-    await wait(3);
+  //  await wait(3);
   }
 
  }
