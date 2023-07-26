@@ -282,12 +282,17 @@
   var timesLastCurrentBreath = 0;
   var secLastBreathDuration = 4;
 
+  var holdBreath = 3;
+  var holdCurrentBreath = 0;
+
+
   numberClass.innerHTML = timesBreath;
   numberClass.style.fontSize = "5em";
   numberClass.style.textAlign = "center";
   start.addEventListener("click",async function(){
     await breath();
     await lastBreath();
+    await holdBreath();
     })
    async function breath (){
     center.classList.add("animationBreath");
@@ -304,21 +309,35 @@
     }
     center.classList.remove("animationBreath");
   }
-  async function lastBreath (){
+   async function lastBreath (){
    center.classList.add("animationBreath");
    center.style.animationDuration = secLastBreathDuration+ "s";
    while (timesLastCurrentBreath < timesLastBreath) {
      console.log("timesLastBreath: " + timesLastBreath + " timesLastCurrentBreath: " + timesLastCurrentBreath);
 
      numberClass.innerHTML = (timesLastBreath - timesLastCurrentBreath) + " Faster!";
-     numberClass.style.fontSize = "5em";
+     numberClass.style.fontSize = "3em";
      numberClass.style.textAlign = "center";
      timesLastCurrentBreath = timesLastCurrentBreath + 1;
      await wait(secLastBreathDuration);
    }
 
    center.classList.remove("animationBreath");
+  }
+  async function holdBreath (){
+  while (holdCurrentBreath < holdBreath) {
+    console.log("holdBreath: " + holdBreath + " holdCurrentBreath: " + holdCurrentBreath);
+
+    numberClass.innerHTML = (holdBreath - holdCurrentBreath) + " Hold!";
+    numberClass.style.fontSize = "3em";
+    numberClass.style.textAlign = "center";
+    holdCurrentBreath = holdCurrentBreath + 1;
+    await wait(1);
+  }
+
  }
+
+
   function wait(sec) {
     var ms = sec * 1000;
   return new Promise(resolve => setTimeout(resolve, ms));
