@@ -270,7 +270,7 @@
   var center = document.getElementById('center');
   var start = document.getElementById('start');
 
-  var noRounds = 10;
+  var noRounds = 2;
   var jumpNumber = 2;
   var restTimeMin = 2;
 
@@ -282,17 +282,28 @@
   var timesLastCurrentBreath = 0;
   var secLastBreathDuration = 4;
 
-  var holdBreath = 6;
+  var holdBreath = 5;
   var holdCurrentBreath = 0;
+
+  var restBreath = 10;
+  var restCurrentBreath = 0;
+
+  var getReadyBreath = 3;
+  var getReadyCurrentBreath = 0;
 
 
   numberClass.innerHTML = timesBreath;
   numberClass.style.fontSize = "5em";
   numberClass.style.textAlign = "center";
   start.addEventListener("click",async function(){
-    await breath();
-    await lastBreath();
-    await  holdBreath();
+    for (var i = 0; i < noRounds; i++) {
+      await breath();
+      await lastBreath();
+      await  hold();
+      await  rest();
+      await  getReady();
+    }
+
     })
    async function breath (){
     center.classList.add("animationBreath");
@@ -325,22 +336,39 @@
    center.classList.remove("animationBreath");
   }
 
-  /*function holdBreath(){
-    while (holdCurrentBreath < holdBreath) {
-      console.log("holdBreath: " + holdBreath + " holdCurrentBreath: " + holdCurrentBreath);
-      holdCurrentBreath = holdCurrentBreath + 1;
-       delay(5000);
-    }
-  }*/
-   function holdBreath(){
+
+   async function hold(){
     while (holdCurrentBreath < holdBreath) {
       console.log("holdBreath: " + holdBreath + " holdCurrentBreath: " + holdCurrentBreath);
       numberClass.innerHTML = (holdBreath - holdCurrentBreath) + " Hold!";
       numberClass.style.fontSize = "3em";
       numberClass.style.textAlign = "center";
       holdCurrentBreath = holdCurrentBreath + 1;
+      await wait(1);
     }
   }
+
+  async function rest(){
+   while (restCurrentBreath < restBreath) {
+     console.log("restBreath: " + restBreath + " restCurrentBreath: " + restCurrentBreath);
+     numberClass.innerHTML = " rest!";
+     numberClass.style.fontSize = "3em";
+     numberClass.style.textAlign = "center";
+     restCurrentBreath = restCurrentBreath + 1;
+     await wait(1);
+   }
+  }
+
+  async function getReady(){
+   while (getReadyCurrentBreath < getReadyBreath) {
+     console.log("getReadyBreath: " + getReadyBreath + " getReadyCurrentBreath: " + getReadyCurrentBreath);
+     numberClass.innerHTML = (getReadyBreath - getReadyCurrentBreath) + " getReady!";
+     numberClass.style.fontSize = "3em";
+     numberClass.style.textAlign = "center";
+     getReadyCurrentBreath = getReadyCurrentBreath + 1;
+     await wait(1);
+   }
+ }
 
 
   function wait(sec) {
