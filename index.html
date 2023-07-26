@@ -291,9 +291,9 @@
     })
    async function breath (){
   //  center.classList.add("animationBreath");
-    center.style.animationDuration = secBreathDuration + "s";
 
     start.style.display = "none";
+    center.style.animationDuration = secBreathDuration + "s";
     while (timesCurrentBreath < timesBreath) {
       console.log("timesBreath: " + timesBreath + " timesCurrentBreath: " + timesCurrentBreath);
       await wait(secBreathDuration);
