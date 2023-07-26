@@ -157,7 +157,7 @@
        height: 100px;
        border-radius: 100%;
        background: rgba(182,149,192,0.8);
-       border: 1px 1px 6px red;
+       box-shadow: 1px 1px 10px rgba(182,149,192,0.8), -1px -1px 10px rgba(182,149,192,0.8);
        z-index: 9;
      }
      .containerButtons{
@@ -233,7 +233,7 @@
       </div>
 
       <div class="dadContainer">
-        <div class="container">
+        <div id="container"class="container">
           <img src="Img/Body.png" alt="">
           <div class="center" id="center">
           </div>
@@ -270,39 +270,86 @@
   var numberClass = document.getElementById('number');
   var center = document.getElementById('center');
   var start = document.getElementById('start');
-
-  var noRounds = 2;
-  var jumpNumber = 2;
-  var TimeMin = 2;
-
-  var timesBreath = 3;
-  var timesCurrentBreath = 0;
-  var secBreathDuration = 8;
-
-  var timesLastBreath = 2;
-  var timesLastCurrentBreath = 0;
-  var secLastBreathDuration = 4;
-
-  var holdBreath = 5;
-  var holdCurrentBreath = 0;
-
-  var restBreath = 10;
-  var restCurrentBreath = 0;
-
-  var getReadyBreath = 3;
-  var getReadyCurrentBreath = 0;
+  var container = document.getElementById('container');
 
 
+
+  var noRounds;
+  var increaseTimesBreath;
+  var increaseHoldBreath;
+
+  var timesBreath;
+  var timesCurrentBreath;
+  var secBreathDuration;
+
+  var timesLastBreath;
+  var timesLastCurrentBreath;
+  var secLastBreathDuration;
+
+  var holdBreath;
+  var holdCurrentBreath;
+
+  var breathIn;
+  var currentBreathIn;
+
+  var holdBreathIn;
+  var holdCurrentBreathIn;
+
+  var restBreath;
+  var restCurrentBreath;
+
+  var getReadyBreath;
+  var getReadyCurrentBreath;
+
+  function initialValues(){
+     noRounds = 4;
+     increaseTimesBreath = 2;
+     increaseHoldBreath = 2;
+
+     timesBreath = 3;
+     timesCurrentBreath = 0;
+     secBreathDuration = 8;
+
+     timesLastBreath = 2;
+     timesLastCurrentBreath = 0;
+     secLastBreathDuration = 4;
+
+     holdBreath = 5;
+     holdCurrentBreath = 0;
+
+     breathIn = 4;
+     currentBreathIn = 0;
+
+     holdBreathIn = 6;
+     holdCurrentBreathIn = 0;
+
+     restBreath = 10;
+     restCurrentBreath = 0;
+
+     getReadyBreath = 3;
+     getReadyCurrentBreath = 0;
+  }
+  function increaseValue(times){
+    timesBreath = timesBreath + increaseTimesBreath * times;
+    holdBreath = holdBreath + increaseHoldBreath * times;
+  }
+
+  initialValues();
   numberClass.innerHTML = timesBreath;
   numberClass.style.fontSize = "5em";
   numberClass.style.textAlign = "center";
   start.addEventListener("click",async function(){
     for (var i = 0; i < noRounds; i++) {
+      initialValues();
+      increaseValue(i);
       await breath();
       await lastBreath();
-      await  hold();
-      await  rest();
+      await hold();
+      await breathIn2();
+      await breathHoldIn2();
+      await rest();
       await  getReady();
+
     }
 
     })
@@ -349,7 +396,35 @@
     }
   }
 
+  async function breathIn2(){
+    center.classList.add("animationBreath");
+    center.style.animationDuration = "8s";
+   while (currentBreathIn < breathIn) {
+     console.log("breathIn: " + breathIn + " currentBreathIn: " + currentBreathIn);
+     numberClass.innerHTML = (breathIn - currentBreathIn) + " Breath in!";
+     numberClass.style.fontSize = "3em";
+     numberClass.style.textAlign = "center";
+     currentBreathIn = currentBreathIn + 1;
+     await wait(1);
+   }
+   center.classList.remove("animationBreath");
+
+   center.style.display = "none";
+   container.style.background = "rgba(182,149,192,0.7)";
+ }
+ async function breathHoldIn2(){
+  while (holdCurrentBreathIn < holdBreathIn) {
+    console.log("holdBreathIn: " + holdBreathIn + " holdCurrentBreathIn: " + holdCurrentBreathIn);
+    numberClass.innerHTML = (holdBreathIn - holdCurrentBreathIn) + " Hold In!";
+    numberClass.style.fontSize = "3em";
+    numberClass.style.textAlign = "center";
+    holdCurrentBreathIn = holdCurrentBreathIn + 1;
+    await wait(1);
+  }
+}
+
   async function rest(){
+    container.style.background = "rgba(182,149,192,0.5";
    while (restCurrentBreath < restBreath) {
      console.log("restBreath: " + restBreath + " restCurrentBreath: " + restCurrentBreath);
      numberClass.innerHTML = " rest!";
@@ -361,6 +436,7 @@
   }
 
   async function getReady(){
+    center.style.display = "block";
    while (getReadyCurrentBreath < getReadyBreath) {
      console.log("getReadyBreath: " + getReadyBreath + " getReadyCurrentBreath: " + getReadyCurrentBreath);
      numberClass.innerHTML = (getReadyBreath - getReadyCurrentBreath) + " getReady!";
