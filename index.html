@@ -11,12 +11,10 @@
         position: relative;
         padding: 0;
         margin: 0;
-        background-color: brown;
       }
       .breath{
         position: relative;
         padding: 1px;
-        background-color: blue;
         width: 100vw;
         height: 100vh;
         display: flex;
@@ -30,6 +28,7 @@
         width: 40px;
         top: 0px;
         right: 0px;
+        display: none;
       }
       .openMenu img{
         position: relative;
@@ -115,7 +114,6 @@
       }
       .dadContainer{
         position: relative;
-        background-color: purple;
         width: 460px;
         height: 600px;
       }
@@ -271,25 +269,37 @@
       var breathInput = document.getElementById('breathInput');
       var animationBreath = document.getElementsByClassName('animationBreath')[0];
 
-      start.addEventListener("click",function(){
-        center.classList.add("animationBreath");
-          setInterval(timer, 8000);
-        })
-      function timer(){
-        getValue();
-        if (number > 0) {
-          number = number -1;
-          numberClass.innerHTML = number;
-          numberClass.style.fontSize = "5em";
-          numberClass.style.textAlign = "center";
-          console.log("hola");
-        }
 
-        else {
-          center.classList.remove("animationBreath");
-        }
 
+/*----------------------------------------------------------------------------*/
+/*-------------------------- Click Botton start ------------------------------*/
+/*----------------------------------------------------------------------------*/
+  var noRounds = 10;
+  var startNumber = 10;
+  var jumpNumber = 2;
+  var restTimeMin = 2;
+
+
+  start.addEventListener("click",function(){
+    center.classList.add("animationBreath");
+      setInterval(timer, 8000);
+    })
+
+    function timer(){
+    //  getValue();
+      if (number > 0) {
+        number = number -1;
+        numberClass.innerHTML = number;
+        numberClass.style.fontSize = "5em";
+        numberClass.style.textAlign = "center";
+        console.log("hola");
       }
+      else {
+        center.classList.remove("animationBreath");
+      }
+    }
+
+/*------------------------ Get jump and start values -------------------------*/
       function getValue(){
         $.ajax( "App/Controller/Controller.php", {
           data: {
@@ -302,7 +312,13 @@
         )
       }
 
-       openMenu.style.display = "block";
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------- Menu -----------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+    //   openMenu.style.display = "block";
        closeMenu.style.display = "none";
        menu.style.display = "none";
 
