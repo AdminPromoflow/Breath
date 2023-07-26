@@ -274,11 +274,11 @@
   var jumpNumber = 2;
   var restTimeMin = 2;
 
-  var timesBreath = 5;
+  var timesBreath = 3;
   var timesCurrentBreath = 0;
   var secBreathDuration = 8;
 
-  var timesLastBreath = 3;
+  var timesLastBreath = 2;
   var timesLastCurrentBreath = 0;
   var secLastBreathDuration = 4;
 
@@ -293,7 +293,7 @@
   //  center.classList.add("animationBreath");
 
     start.style.display = "none";
-    center.style.animationDuration = secBreathDuration + "s";
+    center.style.animationDuration = (secBreathDuration ) + "s";
     while (timesCurrentBreath < timesBreath) {
       console.log("timesBreath: " + timesBreath + " timesCurrentBreath: " + timesCurrentBreath);
       await wait(secBreathDuration);
