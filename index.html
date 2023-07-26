@@ -324,15 +324,17 @@
 
    center.classList.remove("animationBreath");
   }
-  function holdBreath(){
+  const delay = ms => new Promise(res => setTimeout(res, ms));
+
+  /*function holdBreath(){
     while (holdCurrentBreath < holdBreath) {
       console.log("holdBreath: " + holdBreath + " holdCurrentBreath: " + holdCurrentBreath);
       holdCurrentBreath = holdCurrentBreath + 1;
-       wait(secLastBreathDuration);
+       delay(5000);
     }
-  }
-/*   function holdBreath(){
-    alert("entramos");
+  }*/
+   function holdBreath(){
+    //alert("entramos");
   while (holdCurrentBreath < holdBreath) {
     console.log("holdBreath: " + holdBreath + " holdCurrentBreath: " + holdCurrentBreath);
 
@@ -340,10 +342,10 @@
     numberClass.style.fontSize = "3em";
     numberClass.style.textAlign = "center";
     holdCurrentBreath = holdCurrentBreath + 1;
-  //  await wait(3);
+      delay(5000);
   }
 
-}*/
+}
 
 
   function wait(sec) {
