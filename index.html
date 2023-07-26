@@ -324,7 +324,6 @@
 
    center.classList.remove("animationBreath");
   }
-  const delay = ms => new Promise(res => setTimeout(res, ms));
 
   /*function holdBreath(){
     while (holdCurrentBreath < holdBreath) {
@@ -334,18 +333,14 @@
     }
   }*/
    function holdBreath(){
-    //alert("entramos");
-  while (holdCurrentBreath < holdBreath) {
-    console.log("holdBreath: " + holdBreath + " holdCurrentBreath: " + holdCurrentBreath);
-
-    numberClass.innerHTML = (holdBreath - holdCurrentBreath) + " Hold!";
-    numberClass.style.fontSize = "3em";
-    numberClass.style.textAlign = "center";
-    holdCurrentBreath = holdCurrentBreath + 1;
-      delay(5000);
+    while (holdCurrentBreath < holdBreath) {
+      console.log("holdBreath: " + holdBreath + " holdCurrentBreath: " + holdCurrentBreath);
+      numberClass.innerHTML = (holdBreath - holdCurrentBreath) + " Hold!";
+      numberClass.style.fontSize = "3em";
+      numberClass.style.textAlign = "center";
+      holdCurrentBreath = holdCurrentBreath + 1;
+    }
   }
-
-}
 
 
   function wait(sec) {
