@@ -326,9 +326,10 @@
   }
   function test(){
     while (holdCurrentBreath < holdBreath) {
+      console.log("holdBreath: " + holdBreath + " holdCurrentBreath: " + holdCurrentBreath);
       holdCurrentBreath = holdCurrentBreath + 1;
 
-      alert(holdCurrentBreath);
+      await wait(3);
     }
   }
 /*   function holdBreath(){
