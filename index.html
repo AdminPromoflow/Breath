@@ -280,6 +280,7 @@
 
   var timesBreath = 10;
   var timesCurrentBreath = 0;
+  var secBreathDuration = 8;
 
   start.addEventListener("click",function(){
     breath();
@@ -290,13 +291,17 @@
     center.classList.add("animationBreath");
     start.style.display = "none";
     while (timesCurrentBreath < timesBreath) {
-      alert("timesBreath: " + timesBreath + " timesCurrentBreath: " + timesCurrentBreath);
+      console.log("timesBreath: " + timesBreath + " timesCurrentBreath: " + timesCurrentBreath);
+      await wait();
       timesCurrentBreath = timesCurrentBreath + 1;
     }
     center.classList.remove("animationBreath");
     start.style.display = "block";
   }
-
+  function wait() {
+    var ms = secBreathDuration * 1000;
+  return new Promise(resolve => setTimeout(resolve, ms));
+  }
     function timer(){
     //  getValue();
       if (number > 0) {
