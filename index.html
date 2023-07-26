@@ -132,6 +132,7 @@
         z-index: 10;
       }
       .animationBreath{
+        animation: animate 0s linear infinite;
      }
      @keyframes animate {
        0%{
@@ -157,7 +158,6 @@
        border-radius: 100%;
        background: rgba(182,149,192,0.8);
        z-index: 9;
-       animation: animate 0s linear infinite;
      }
      .containerButtons{
         position: relative;
@@ -287,15 +287,13 @@
   numberClass.style.textAlign = "center";
   start.addEventListener("click",async function(){
     await breath();
-    await wait(2);
-
     await lastBreath();
     })
    async function breath (){
-  //  center.classList.add("animationBreath");
-
-    start.style.display = "none";
+    center.classList.add("animationBreath");
     center.style.animationDuration = (secBreathDuration ) + "s";
+    start.style.display = "none";
+
     while (timesCurrentBreath < timesBreath) {
       console.log("timesBreath: " + timesBreath + " timesCurrentBreath: " + timesCurrentBreath);
       timesCurrentBreath = timesCurrentBreath + 1;
@@ -303,15 +301,11 @@
       numberClass.style.textAlign = "center";
       numberClass.innerHTML = timesBreath - timesCurrentBreath;
       await wait(secBreathDuration);
-
     }
 
   }
   async function lastBreath (){
-  // center.classList.add("animationBreath");
    center.style.animationDuration = secLastBreathDuration+ "s";
-   //animationDuration
-   //start.style.display = "none";
    while (timesLastCurrentBreath < timesLastBreath) {
      console.log("timesLastBreath: " + timesLastBreath + " timesLastCurrentBreath: " + timesLastCurrentBreath);
 
@@ -320,10 +314,10 @@
      numberClass.style.textAlign = "center";
      timesLastCurrentBreath = timesLastCurrentBreath + 1;
      await wait(secLastBreathDuration);
-
    }
 
-   center.style.animationDuration =  "0s";
+   center.classList.remove("animationBreath");
+
   // start.style.display = "block";
  }
   function wait(sec) {
