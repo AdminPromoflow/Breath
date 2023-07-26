@@ -291,8 +291,8 @@
   numberClass.style.textAlign = "center";
   start.addEventListener("click",async function(){
     await breath();
-  //  await lastBreath();
-    await  test();
+    await lastBreath();
+    await  holdBreath();
     })
    async function breath (){
     center.classList.add("animationBreath");
@@ -324,11 +324,11 @@
 
    center.classList.remove("animationBreath");
   }
-  function test(){
+  function holdBreath(){
     while (holdCurrentBreath < holdBreath) {
       console.log("holdBreath: " + holdBreath + " holdCurrentBreath: " + holdCurrentBreath);
       holdCurrentBreath = holdCurrentBreath + 1;
-      await wait(secLastBreathDuration);
+       wait(secLastBreathDuration);
     }
   }
 /*   function holdBreath(){
