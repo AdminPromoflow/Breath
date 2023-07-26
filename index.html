@@ -275,15 +275,27 @@
 /*-------------------------- Click Botton start ------------------------------*/
 /*----------------------------------------------------------------------------*/
   var noRounds = 10;
-  var startNumber = 10;
   var jumpNumber = 2;
   var restTimeMin = 2;
 
+  var timesBreath = 10;
+  var timesCurrentBreath = 0;
 
   start.addEventListener("click",function(){
-    center.classList.add("animationBreath");
-      setInterval(timer, 8000);
+    breath();
+  //  center.classList.add("animationBreath");
+  //    setInterval(timer, 8000);
     })
+  function breath(){
+    center.classList.add("animationBreath");
+    start.style.display = "none";
+    while (timesCurrentBreath < timesBreath) {
+      alert("timesBreath: " + timesBreath + " timesCurrentBreath: " + timesCurrentBreath);
+      timesCurrentBreath = timesCurrentBreath + 1;
+    }
+    center.classList.remove("animationBreath");
+    start.style.display = "block";
+  }
 
     function timer(){
     //  getValue();
