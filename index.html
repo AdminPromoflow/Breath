@@ -158,10 +158,7 @@
        background: rgba(182,149,192,0.8);
        z-index: 9;
        animation: animate 0s linear infinite;
-
      }
-
-
      .containerButtons{
         position: relative;
         width: 460px;
@@ -197,7 +194,6 @@
         left: 15px;
         padding: 0px 5px;
       }
-
       .number h1{
         position: relative;
         font-size: 5em;
@@ -206,9 +202,6 @@
         text-align: center;
         margin: 0;
       }
-
-
-
     </style>
 
     <section class="breath">
@@ -295,12 +288,10 @@
   start.addEventListener("click",async function(){
     await breath();
     await lastBreath();
-  //  center.classList.add("animationBreath");
-  //    setInterval(timer, 8000);
     })
    async function breath (){
   //  center.classList.add("animationBreath");
-    center.style.animationDuration = secBreathDuration;
+    center.style.animationDuration = secBreathDuration + "s";
 
     start.style.display = "none";
     while (timesCurrentBreath < timesBreath) {
