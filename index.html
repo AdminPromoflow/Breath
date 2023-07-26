@@ -296,10 +296,10 @@
 
     while (timesCurrentBreath < timesBreath) {
       console.log("timesBreath: " + timesBreath + " timesCurrentBreath: " + timesCurrentBreath);
+      numberClass.innerHTML = timesBreath - timesCurrentBreath;
       timesCurrentBreath = timesCurrentBreath + 1;
       numberClass.style.fontSize = "5em";
       numberClass.style.textAlign = "center";
-      numberClass.innerHTML = timesBreath - timesCurrentBreath;
       await wait(secBreathDuration);
     }
 
