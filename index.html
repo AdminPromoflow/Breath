@@ -292,7 +292,7 @@
   start.addEventListener("click",async function(){
     await breath();
     await lastBreath();
-    await holdBreath();
+     holdBreath();
     })
    async function breath (){
     center.classList.add("animationBreath");
@@ -324,7 +324,7 @@
 
    center.classList.remove("animationBreath");
   }
-  async function holdBreath(){
+   function holdBreath(){
     alert("entramos");
   while (holdCurrentBreath < holdBreath) {
     console.log("holdBreath: " + holdBreath + " holdCurrentBreath: " + holdCurrentBreath);
