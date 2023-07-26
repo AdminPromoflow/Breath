@@ -132,7 +132,6 @@
         z-index: 10;
       }
       .animationBreath{
-       animation: animate 8s linear infinite;
      }
      @keyframes animate {
        0%{
@@ -158,6 +157,8 @@
        border-radius: 100%;
        background: rgba(182,149,192,0.8);
        z-index: 9;
+       animation: animate 2s linear infinite;
+
      }
 
 
@@ -256,9 +257,7 @@
     </section>
 
     <script type="text/javascript">
-      var start = document.getElementById('start');
 
-      var center = document.getElementById('center');
       var number = 10;
       var menu = document.getElementById('menu');
       var openMenu = document.getElementById('openMenu');
@@ -275,6 +274,9 @@
 /*-------------------------- Click Botton start ------------------------------*/
 /*----------------------------------------------------------------------------*/
   var numberClass = document.getElementById('number');
+  var center = document.getElementById('center');
+  var start = document.getElementById('start');
+
   var noRounds = 10;
   var jumpNumber = 2;
   var restTimeMin = 2;
@@ -283,7 +285,7 @@
   var timesCurrentBreath = 0;
   var secBreathDuration = 8;
 
-  var timesLastBreath = 2;
+  var timesLastBreath = 3;
   var timesLastCurrentBreath = 0;
   var secLastBreathDuration = 4;
 
@@ -297,7 +299,7 @@
   //    setInterval(timer, 8000);
     })
    async function breath (){
-    center.classList.add("animationBreath");
+  //  center.classList.add("animationBreath");
     start.style.display = "none";
     while (timesCurrentBreath < timesBreath) {
       console.log("timesBreath: " + timesBreath + " timesCurrentBreath: " + timesCurrentBreath);
@@ -312,7 +314,7 @@
     //start.style.display = "block";
   }
   async function lastBreath (){
-   center.classList.add("animationBreath");
+  // center.classList.add("animationBreath");
    center.style.animationDuration = secLastBreathDuration;
    //animationDuration
    //start.style.display = "none";
@@ -325,7 +327,7 @@
      numberClass.style.textAlign = "center";
    }
 
-   center.classList.remove("animationBreath");
+//   center.classList.remove("animationBreath");
    start.style.display = "block";
  }
   function wait(sec) {
