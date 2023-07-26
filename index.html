@@ -309,7 +309,7 @@
    while (timesLastCurrentBreath < timesLastBreath) {
      console.log("timesLastBreath: " + timesLastBreath + " timesLastCurrentBreath: " + timesLastCurrentBreath);
 
-     numberClass.innerHTML = timesLastBreath - timesLastCurrentBreath;
+     numberClass.innerHTML = (timesLastBreath - timesLastCurrentBreath) + " Faster!";
      numberClass.style.fontSize = "5em";
      numberClass.style.textAlign = "center";
      timesLastCurrentBreath = timesLastCurrentBreath + 1;
