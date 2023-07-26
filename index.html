@@ -314,11 +314,11 @@
    while (timesLastCurrentBreath < timesLastBreath) {
      console.log("timesLastBreath: " + timesLastBreath + " timesLastCurrentBreath: " + timesLastCurrentBreath);
      await wait(secLastBreathDuration);
-     timesLastCurrentBreath = timesLastCurrentBreath + 1;
 
      numberClass.innerHTML = timesLastBreath - timesLastCurrentBreath;
      numberClass.style.fontSize = "5em";
      numberClass.style.textAlign = "center";
+     timesLastCurrentBreath = timesLastCurrentBreath + 1;
 
    }
 
