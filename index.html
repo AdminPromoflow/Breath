@@ -257,7 +257,7 @@
 
     <script type="text/javascript">
       var start = document.getElementById('start');
-      var numberClass = document.getElementById('number');
+
       var center = document.getElementById('center');
       var number = 10;
       var menu = document.getElementById('menu');
@@ -274,16 +274,25 @@
 /*----------------------------------------------------------------------------*/
 /*-------------------------- Click Botton start ------------------------------*/
 /*----------------------------------------------------------------------------*/
+  var numberClass = document.getElementById('number');
   var noRounds = 10;
   var jumpNumber = 2;
   var restTimeMin = 2;
 
-  var timesBreath = 10;
+  var timesBreath = 5;
   var timesCurrentBreath = 0;
   var secBreathDuration = 8;
 
-  start.addEventListener("click",function(){
-    breath();
+  var timesLastBreath = 2;
+  var timesLastCurrentBreath = 0;
+  var secLastBreathDuration = 4;
+
+  numberClass.innerHTML = timesBreath;
+  numberClass.style.fontSize = "5em";
+  numberClass.style.textAlign = "center";
+  start.addEventListener("click",async function(){
+    await breath();
+    await lastBreath();
   //  center.classList.add("animationBreath");
   //    setInterval(timer, 8000);
     })
@@ -292,14 +301,36 @@
     start.style.display = "none";
     while (timesCurrentBreath < timesBreath) {
       console.log("timesBreath: " + timesBreath + " timesCurrentBreath: " + timesCurrentBreath);
-      await wait();
+      await wait(secBreathDuration);
       timesCurrentBreath = timesCurrentBreath + 1;
+      numberClass.innerHTML = timesBreath - timesCurrentBreath;
+      numberClass.style.fontSize = "5em";
+      numberClass.style.textAlign = "center";
     }
-    center.classList.remove("animationBreath");
-    start.style.display = "block";
+
+    //center.classList.remove("animationBreath");
+    //start.style.display = "block";
   }
-  function wait() {
-    var ms = secBreathDuration * 1000;
+  async function lastBreath (){
+   center.classList.add("animationBreath");
+   var animationBreath = document.getElementById("animationBreath");
+   animationBreath.style.animationDuration = secLastBreathDuration;
+   //animationDuration
+   //start.style.display = "none";
+   while (timesLastCurrentBreath < timesLastBreath) {
+     console.log("timesLastBreath: " + timesLastBreath + " timesLastCurrentBreath: " + timesLastCurrentBreath);
+     await wait(secLastBreathDuration);
+     timesLastCurrentBreath = timesLastCurrentBreath + 1;
+     numberClass.innerHTML = timesLastBreath - timesLastCurrentBreath;
+     numberClass.style.fontSize = "5em";
+     numberClass.style.textAlign = "center";
+   }
+
+   center.classList.remove("animationBreath");
+   start.style.display = "block";
+ }
+  function wait(sec) {
+    var ms = sec * 1000;
   return new Promise(resolve => setTimeout(resolve, ms));
   }
     function timer(){
